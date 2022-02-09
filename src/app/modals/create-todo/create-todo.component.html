@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title>mCreate Todo</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="editForm" (ngSubmit)="save()">
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input placeholder="What to do"
+                 type="text"
+                 formControlName="name"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Description</ion-label>
+      <ion-textarea placeholder="Detailed description"
+                    type="text"
+                    formControlName="description"
+      ></ion-textarea>
+    </ion-item>
+
+    <ion-button type="submit" expand="block" color="primary"
+                [disabled]="!editForm.valid"
+    >display</ion-button>
+  </form>
+
+</ion-content>
